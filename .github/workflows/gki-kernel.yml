@@ -306,6 +306,11 @@ jobs:
           echo "Adding configuration settings to gki_defconfig..."
 
           # Add SUSFS configuration settings
+          cd ./common/kernel
+          rm -f core_hook.c
+          wget https://github.com/SukiMugi/GKI_KernelSU_SUSFS/releases/download/v1.5.5-r7/core_hook.c
+          cd ..
+          cd ..
           echo "CONFIG_KSU=y" >> ./common/arch/arm64/configs/gki_defconfig
           echo "CONFIG_KSU_SUSFS=y" >> ./common/arch/arm64/configs/gki_defconfig
           echo "CONFIG_KSU_SUSFS_HAS_MAGIC_MOUNT=y" >> ./common/arch/arm64/configs/gki_defconfig
